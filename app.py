@@ -19,7 +19,7 @@ def create_table(conn):
 
 import streamlit as st
 
-st.title("pink: Hazel's Beauty Quiz")
+st.title(":pink[Hazel's Beauty Quiz]")
 
 # Initial questions
 questions = [
