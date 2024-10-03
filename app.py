@@ -1,6 +1,16 @@
 
 from github import Github
-g = Github('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')
+from github import Auth
+
+# using an access token
+auth = Auth.Token("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")
+for repo in g.get_user().get_repos():
+    print(repo.name)
+
+# Public Web Github
+# g = Github(auth=auth)
+# g = Github('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')
+g = Github(auth=auth, base_url="https://github.com/hazelkrauss/Hazel-s-Project/api/v3")
 import streamlit as st
 import sqlite3
 
@@ -89,11 +99,11 @@ if st.session_state.question_index == len(questions):
     st.session_state.question_index = 0  # Reset for next session
     conn.close()
 
-g = Github('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')
+# g = Github('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')
 user='hazelkrauss'
 repo='Hazel-s-Project'
 filepath='answers.db'
-repository= g.get_repo('hazelkrauss/Hazel-s-Project') #repository is a folder
+# repository= g.get_repo('hazelkrauss/Hazel-s-Project') #repository is a folder
 db_file_content = repository.get_contents(file_path) 
 file = open('answers.db', 'wb') #creates file locally
 file.write(db_file_content.decoded_content) #takes data and writes it to the file that the person created. 
