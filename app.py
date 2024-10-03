@@ -1,4 +1,4 @@
-from github import Github 
+import Github 
 
 import streamlit as st
 import sqlite3
