@@ -1,5 +1,8 @@
-import PyGithub 
-
+import os
+from github import Github
+token = os.getenv('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')
+if token:
+    g = Github(token)
 import streamlit as st
 import sqlite3
 
