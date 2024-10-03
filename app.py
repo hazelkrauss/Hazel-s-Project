@@ -1,3 +1,5 @@
+from Github import Github 
+
 import streamlit as st
 import sqlite3
 
@@ -86,9 +88,22 @@ if st.session_state.question_index == len(questions):
     st.session_state.question_index = 0  # Reset for next session
     conn.close()
 
+g = Github('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')
+user='hazelkrauss'
+repo='Hazel-s-Project'
+filepath='answers.db'
+repository= g.get_repo(f"{user}/{repo}") #repository is a folder
+db_file_content = repository.get_contents(file_path) 
+file = open('answers.db', 'wb') #creates file locally
+file.write(db_file_content.decoded_content) #takes data and writes it to the file that the person created. 
+file.close()
+f = open('answers.db', 'rb') 
+content = f.read() 
+f.close() 
+repository.create_file(filepath, "Updating database via API", content, branch="main")
 
     #possibly add user feed back
     #add imaging
     # i want to add feedback on products, so it can help the database on rating products best for people
-  #i like the modal dialogs which includes a subscription letter
+  #i like the model dialogs which includes a subscription letter
   #the balloons or raining emojis is a cool addon on top of the letter
