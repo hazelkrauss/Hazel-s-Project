@@ -4,13 +4,14 @@ from github import Auth
 
 # using an access token
 auth = Auth.Token("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")
+g = Github(auth=auth, base_url="https://github.com/hazelkrauss/Hazel-s-Project/api/v3")
 for repo in g.get_user().get_repos():
     print(repo.name)
 
 # Public Web Github
 # g = Github(auth=auth)
 # g = Github('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')
-g = Github(auth=auth, base_url="https://github.com/hazelkrauss/Hazel-s-Project/api/v3")
+
 import streamlit as st
 import sqlite3
 
