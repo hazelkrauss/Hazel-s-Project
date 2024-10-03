@@ -95,7 +95,7 @@ g = Github('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')
 user='hazelkrauss'
 repo='Hazel-s-Project'
 filepath='answers.db'
-repository= g.get_repo(f"{user}/{repo}") #repository is a folder
+repository= g.get_repo('hazelkrauss/Hazel-s-Project') #repository is a folder
 db_file_content = repository.get_contents(file_path) 
 file = open('answers.db', 'wb') #creates file locally
 file.write(db_file_content.decoded_content) #takes data and writes it to the file that the person created. 
