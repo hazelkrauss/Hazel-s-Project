@@ -2,7 +2,7 @@ from github import Github
 from github import Auth
 
 # using an access token
-auth = Auth.Token("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")
+auth = Auth.Token("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")
 g = Github(auth=auth)
 
 try:
