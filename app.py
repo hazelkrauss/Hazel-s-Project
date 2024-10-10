@@ -99,7 +99,7 @@ if st.session_state.question_index == len(questions):
     st.success("All questions answered! Thank you!")
 
 
-st.text(result)
+# st.text(result)
 st.session_state.question_index = 0  # Reset for next session
 conn.close()
 
