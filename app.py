@@ -102,4 +102,23 @@ if st.session_state.question_index == len(questions):
 # st.text(result)
 st.session_state.question_index = 0  # Reset for next session
 conn.close()
+import cohere
+
+co = cohere.ClientV2(api_key="OINYaQjxFirPjq5NOUdVUlM8iYW52tPLAq6o5CPA")
+
+system_message = "You will be taking in survey responses and giving make up recommendations based on the answers. You will be given a list of ingredients that will eliminate products also based on certain responses"
+
+
+res = co.chat(
+    model="command-r-plus-08-2024",
+    messages=[
+{"role": "system", "content": system_message},
+{"role": "user", "content": xy}
+{"role": "user", "content": "based on these survey responses give the user makeup recommendations"}],
+)
+            
+st.text(res.message.content[0].text) # "AI: The Generative Age"
+
+
+
 
