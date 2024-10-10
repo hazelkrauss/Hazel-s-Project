@@ -109,8 +109,8 @@ if st.session_state.question_index == len(questions):
     conn.close()
 
 # g = Github('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')
-user='hazelkrauss'
-repo='Hazel-s-Project'
+
+repo= 'Hazel-s-Project'
 filepath='answers.db'
 repository= g.get_repo('hazelkrauss/Hazel-s-Project') #repository is a folder
 db_file_content = repository.get_contents(file_path) 
