@@ -97,7 +97,7 @@ if st.session_state.question_index == len(questions):
 questions.append(qskintype)
 answer.append(skin_type)
 answer.append(skin_type)
-    st.text(result)
-    st.session_state.question_index = 0  # Reset for next session
-    conn.close()
+st.text(result)
+st.session_state.question_index = 0  # Reset for next session
+conn.close()
 
