@@ -113,7 +113,7 @@ res = co.chat(
     model="command-r-plus-08-2024",
     messages=[
 {"role": "system", "content": system_message},
-{"role": "user", "content": xy}
+{"role": "user", "content": xy},
 {"role": "user", "content": "based on these survey responses give the user makeup recommendations"}],
 )
             
