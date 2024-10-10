@@ -86,6 +86,10 @@ if st.session_state.question_index == len(questions):
     )
     #picture = st.camera_input("Take a picture")
     #label = "Picture"
+    questions.append(qskintype)
+    answer.append(skin_type)
+    xy = dict(zip(questions,answer))
+ 
     with conn:
         conn.execute('INSERT INTO responses (question, answer) VALUES (?, ?)', (qskintype, skin_type))
         cursor = conn.cursor()
@@ -94,9 +98,7 @@ if st.session_state.question_index == len(questions):
         #conn.execute('INSERT INTO responses (question, answer) VALUES (?, ?)', (label, picture))
     st.success("All questions answered! Thank you!")
 
-questions.append(qskintype)
-answer.append(skin_type)
-answer.append(skin_type)
+
 st.text(result)
 st.session_state.question_index = 0  # Reset for next session
 conn.close()
