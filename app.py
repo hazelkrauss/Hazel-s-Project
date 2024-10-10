@@ -1,20 +1,11 @@
-from github import Github
-from github import Auth
+#from github import Github
+#from github import Auth
 
 # using an access token
-auth = Auth.Token("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")
-g = Github(auth=auth)
+# auth = Auth.Token("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")
+# g = Github(auth=auth)
 
-try:
-    user = g.get_user()  # Get the authenticated user
-    print(f"Authenticated as: {user.login}")  # Print the user's login name
 
-    # List the user's repositories
-    for repo in user.get_repos():
-        print(repo.name)
-
-except Exception as e:
-    print(f"An error occurred: {e}")  # Print the error message
 
 # Public Web Github
 # g = Github(auth=auth)
@@ -103,21 +94,10 @@ if st.session_state.question_index == len(questions):
         #conn.execute('INSERT INTO responses (question, answer) VALUES (?, ?)', (label, picture))
     st.success("All questions answered! Thank you!")
 
-
+questions.append(qskintype)
+answer.append(skin_type)
+answer.append(skin_type)
     st.text(result)
     st.session_state.question_index = 0  # Reset for next session
     conn.close()
 
-# g = Github('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')
-
-repo= 'Hazel-s-Project'
-filepath='answers.db'
-repository= g.get_repo('hazelkrauss/Hazel-s-Project') #repository is a folder
-db_file_content = repository.get_contents(file_path) 
-file = open('answers.db', 'wb') #creates file locally
-file.write(db_file_content.decoded_content) #takes data and writes it to the file that the person created. 
-file.close()
-f = open('answers.db', 'rb') 
-content = f.read() 
-f.close() 
-repository.create_file(filepath, "Updating database via API", content, branch="main")
