@@ -32,6 +32,7 @@ def create_table(conn):
 
 import streamlit as st
 
+st.markdown("<h1>Hazel's <em>Beauty</em> Quiz</h1>", unsafe_allow_html=True)
 st.title("Hazel's Beauty Quiz")
 
 # Initial questions
